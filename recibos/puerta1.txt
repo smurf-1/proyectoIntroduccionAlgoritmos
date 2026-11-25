@@ -1,0 +1,25 @@
+=== Instrucciones de Cortes ===
+Cliente: camilopmagia
+Material de la lamina: melamina
+
+--- Medidas de la lamina ---
+Alto lamina: 150 cm
+Ancho lamina: 120 cm
+Area lamina: 18000 cm2
+
+--- Medidas de la puerta ---
+Alto puerta: 90 cm
+Ancho puerta: 120 cm
+Area puerta: 10800 cm2
+
+Cantidad de laminas/retazos: 1
+Area de retazos/sobrantes: 7200 cm2
+
+========================================
+
+=== Instrucciones paso a paso ===
+Con la lamina si puedes armar la puerta
+Debes cortar 60 cm del alto y 0 cm del ancho de la lamina.
+De ese corte sobraron dos pedazos:
+uno de 150 cm por 0 cm y otro de 60 cm por 120 cm.
+no se debe agregar ningun pedazo :)

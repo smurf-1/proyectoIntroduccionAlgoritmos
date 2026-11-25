@@ -1,69 +1,76 @@
 const inputArchivo = document.getElementById('archivoInput');
 const btnCargar    = document.getElementById('btnCargar');
 const btnImprimir  = document.getElementById('btnImprimir');
-const reciboEl     = document.getElementById('recibo');
+const btnCopiar    = document.getElementById('btnCopiar');
+const contenido    = document.getElementById('contenido');
+const receiptEl    = document.getElementById('receipt');
 const estadoEl     = document.getElementById('estado');
 
-/**
- * Carga el archivo .txt generado por C++.
- * El archivo debe estar en la carpeta /recibos del servidor.
- */
-async function cargarRecibo(nombreArchivo) {
-  const ruta = `recibos/${encodeURIComponent(nombreArchivo)}?_=${Date.now()}`;
+async function cargarRecibo(nombre) {
+  const ruta = `recibos/${encodeURIComponent(nombre)}?_=${Date.now()}`;
 
-  setEstado('Cargando...', '');
+  estadoEl.textContent = 'Cargando...';
+  estadoEl.className = 'estado';
+  receiptEl.classList.remove('show');
+  btnImprimir.disabled = true;
+  btnCopiar.disabled = true;
 
   try {
     const resp = await fetch(ruta, { cache: 'no-store' });
-
-    if (!resp.ok) throw new Error(`HTTP ${resp.status} - ${resp.statusText}`);
-
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const texto = await resp.text();
+    if (!texto.trim()) throw new Error('Archivo vacío');
 
-    if (!texto.trim()) throw new Error('El archivo está vacío.');
+    contenido.textContent = texto;
 
-    reciboEl.textContent = texto;
-    btnImprimir.disabled = false;
-    setEstado(`✔ Recibo "${nombreArchivo}" cargado correctamente.`, 'ok');
-  } catch (err) {
-    reciboEl.textContent = 'No se pudo cargar el recibo.';
-    btnImprimir.disabled = true;
-    setEstado(`✖ Error: ${err.message}. Verifica que el archivo exista en /recibos.`, 'err');
-    console.error(err);
+    // pequeña pausa para que se vea la animación "salir del ticket"
+    setTimeout(() => {
+      receiptEl.classList.add('show');
+      btnImprimir.disabled = false;
+      btnCopiar.disabled = false;
+    }, 150);
+
+    estadoEl.textContent = `✔ ${nombre} cargado`;
+    estadoEl.className = 'estado ok';
+  } catch (e) {
+    contenido.textContent = 'No se pudo cargar el recibo.';
+    estadoEl.textContent = `✖ Error: ${e.message}`;
+    estadoEl.className = 'estado err';
   }
 }
 
-function setEstado(msg, tipo) {
-  estadoEl.textContent = msg;
-  estadoEl.className = 'estado' + (tipo ? ' ' + tipo : '');
-}
-
-function imprimir() {
-  if (btnImprimir.disabled) return;
-  window.print();
-}
-
-// ====== Eventos ======
 btnCargar.addEventListener('click', () => {
-  const nombre = inputArchivo.value.trim();
-  if (!nombre) {
-    setEstado('Escribe el nombre del archivo (ej: recibo_001.txt).', 'err');
-    return;
-  }
-  cargarRecibo(nombre);
+  const n = inputArchivo.value.trim();
+  if (n) cargarRecibo(n);
 });
 
-// Enter en el input = cargar
-inputArchivo.addEventListener('keydown', (e) => {
+inputArchivo.addEventListener('keydown', e => {
   if (e.key === 'Enter') btnCargar.click();
 });
 
-btnImprimir.addEventListener('click', imprimir);
+btnImprimir.addEventListener('click', () => {
+  // animación "printing"
+  document.body.classList.add('printing');
+  setTimeout(() => {
+    window.print();
+    document.body.classList.remove('printing');
+  }, 400);
+});
 
-// Auto-cargar si llega ?archivo=recibo_001.txt
+btnCopiar.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(contenido.textContent);
+    estadoEl.textContent = '📋 Recibo copiado al portapapeles';
+    estadoEl.className = 'estado ok';
+  } catch {
+    estadoEl.textContent = 'No se pudo copiar';
+    estadoEl.className = 'estado err';
+  }
+});
+
+// Auto-carga si viene ?archivo= en la URL
 window.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(location.search);
-  const archivo = params.get('archivo');
+  const archivo = new URLSearchParams(location.search).get('archivo');
   if (archivo) {
     inputArchivo.value = archivo;
     cargarRecibo(archivo);
