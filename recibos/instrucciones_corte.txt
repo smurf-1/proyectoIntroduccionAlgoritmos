@@ -1,0 +1,22 @@
+=== INSTRUCCIONES DE CORTE ===
+
+Con una sola lamina no alcanza. Se agregaran laminas/retazos adicionales del mismo tamano.
+Lamina/retazo #1 agregado (100x150 cm). Area acumulada: 15000 cm2 / Area puerta: 20400 cm2.
+Aun falta area; se necesita otro retazo/lamina.
+Lamina/retazo #2 agregado (100x150 cm). Area acumulada: 30000 cm2 / Area puerta: 20400 cm2.
+----- Lamina 1 de 2 (100x150 cm) -----
+1. Corte de la lamina 1 una pieza de 100 cm de alto por 150 cm de ancho.
+2. Pegue la pieza al inicio de la fila 1 de la puerta.
+Ancho cubierto de la fila 1: 150 cm de 170 cm.
+3. De esta lamina no sobro nada.
+VERIFICACION: aun falta cubrir 120 cm de alto; en la fila actual faltan 20 cm de ancho.
+----- Lamina 2 de 2 (100x150 cm) -----
+1. Corte de la lamina 2 una pieza de 100 cm de alto por 20 cm de ancho.
+2. Pegue la pieza en la fila 1 de la puerta, a la derecha de lo que ya tiene armado.
+Ancho cubierto de la fila 1: 170 cm de 170 cm.
+Fila 1 completa. Alto cubierto de la puerta: 100 cm de 120 cm.
+3. Sobra una tira lateral de 100 cm de alto y 130 cm de ancho.
+VERIFICACION: aun falta cubrir 20 cm de alto; en la fila actual faltan 170 cm de ancho.
+AVISO: con las laminas calculadas por area aun no se cubre toda la puerta por la forma de los cortes.
+Total de laminas/retazos necesarios por area: 2
+Sobrante total estimado por area: 9600 cm2

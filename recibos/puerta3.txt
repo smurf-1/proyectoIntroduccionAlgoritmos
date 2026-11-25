@@ -1,0 +1,12 @@
+=== Recibo Digital ===
+Cliente: camilo3
+Material de la lamina: carton paja
+
+Alto lamina: 100 cm
+Ancho lamina: 150 cm
+Area lamina: 15000 cm2
+Alto puerta: 120 cm
+Ancho puerta: 170 cm
+Area puerta: 20400 cm2
+Cantidad laminas/retazos: 2
+Area de retazos/sobrantes: 9600 cm2

@@ -1,0 +1,28 @@
+=== Instrucciones de Cortes ===
+Cliente: camilo de la papeleria xd
+Material de la lamina: driboll
+
+--- Medidas de la lamina ---
+Alto lamina: 120 cm
+Ancho lamina: 30 cm
+Area lamina: 3600 cm2
+
+--- Medidas de la puerta ---
+Alto puerta: 67 cm
+Ancho puerta: 127 cm
+Area puerta: 8509 cm2
+
+Cantidad de laminas/retazos: 3
+Area de retazos/sobrantes: 2291 cm2
+
+========================================
+
+=== Instrucciones paso a paso ===
+Con una sola lamina no alcanza. Se agregaran laminas/retazos adicionales del mismo tamano.
+Lamina/retazo #1 agregado (120x30 cm). Area acumulada: 3600 cm2 / Area puerta: 8509 cm2.
+Aun falta area; se necesita otro retazo/lamina.
+Lamina/retazo #2 agregado (120x30 cm). Area acumulada: 7200 cm2 / Area puerta: 8509 cm2.
+Aun falta area; se necesita otro retazo/lamina.
+Lamina/retazo #3 agregado (120x30 cm). Area acumulada: 10800 cm2 / Area puerta: 8509 cm2.
+Total de laminas/retazos necesarios por area: 3
+Sobrante total estimado por area: 2291 cm2
