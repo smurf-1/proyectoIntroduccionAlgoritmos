@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imprimir Recibo de Pago</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="toolbar no-print">
+      <h1>🧾 Sistema de Recibos</h1>
+      <div class="controls">
+        <input 
+          type="text" 
+          id="archivoInput" 
+          placeholder="Ej: recibo_001.txt"
+          value="recibo_001.txt"
+        >
+        <button id="btnCargar">📂 Cargar</button>
+        <button id="btnImprimir" disabled>🖨️ Imprimir</button>
+      </div>
+      <p id="estado" class="estado">Esperando archivo...</p>
+    </header>
+
+    <main class="recibo-wrapper">
+      <pre id="recibo" class="recibo">No se ha cargado ningún recibo.</pre>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

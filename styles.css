@@ -1,0 +1,102 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #eef1f5;
+  color: #222;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container { max-width: 900px; margin: 0 auto; }
+
+.toolbar {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  margin-bottom: 20px;
+}
+
+.toolbar h1 { font-size: 1.3rem; margin-bottom: 12px; }
+
+.controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+button:hover:not(:disabled) { background: #1d4ed8; }
+button:disabled { background: #cbd5e1; cursor: not-allowed; }
+
+.estado {
+  margin-top: 10px;
+  font-size: .9rem;
+  color: #64748b;
+}
+.estado.ok   { color: #16a34a; }
+.estado.err  { color: #dc2626; }
+
+/* Hoja tipo recibo */
+.recibo-wrapper {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  display: flex;
+  justify-content: center;
+}
+
+.recibo {
+  font-family: 'Courier New', Consolas, monospace;
+  font-size: 12pt;
+  white-space: pre;
+  line-height: 1.4;
+  color: #111;
+  width: 80mm;              /* ancho típico ticket */
+  min-height: 100mm;
+  padding: 5mm;
+  border: 1px dashed #ccc;
+}
+
+/* ====== Estilos de impresión ====== */
+@media print {
+  body { background: #fff; padding: 0; }
+  .no-print { display: none !important; }
+  .container { max-width: none; margin: 0; }
+  .recibo-wrapper {
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+  }
+  .recibo {
+    border: none;
+    padding: 0;
+    width: auto;
+    page-break-inside: avoid;
+  }
+  @page {
+    size: 80mm auto;   /* ajusta a 58mm si es impresora térmica pequeña */
+    margin: 4mm;
+  }
+}
